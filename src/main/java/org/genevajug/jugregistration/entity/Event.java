@@ -13,11 +13,12 @@ import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.Size;
+import org.genevajug.jugregistration.validator.EventDate;
 
 /**
- *
  * @author codingdojo
  */
+@EventDate
 @Entity
 public class Event implements Serializable {
     
