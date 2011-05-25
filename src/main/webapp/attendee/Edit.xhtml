@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditAttendeeTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditAttendeeLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{attendeeController.selected.id}" title="#{bundle.EditAttendeeTitle_id}" />
+                    <h:outputLabel value="#{bundle.EditAttendeeLabel_email}" for="email" />
+                    <h:inputText id="email" value="#{attendeeController.selected.email}" title="#{bundle.EditAttendeeTitle_email}" />
+                    <h:outputLabel value="#{bundle.EditAttendeeLabel_firstName}" for="firstName" />
+                    <h:inputText id="firstName" value="#{attendeeController.selected.firstName}" title="#{bundle.EditAttendeeTitle_firstName}" />
+                    <h:outputLabel value="#{bundle.EditAttendeeLabel_name}" for="name" />
+                    <h:inputText id="name" value="#{attendeeController.selected.name}" title="#{bundle.EditAttendeeTitle_name}" />
+                </h:panelGrid>
+                <h:commandLink action="#{attendeeController.update}" value="#{bundle.EditAttendeeSaveLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="View" value="#{bundle.EditAttendeeViewLink}" immediate="true"/>
+                <br />
+                <h:commandLink action="#{attendeeController.prepareList}" value="#{bundle.EditAttendeeShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.EditAttendeeIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
